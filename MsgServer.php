@@ -30,8 +30,8 @@ class MsgServer
 
     public function onTask($serv, $task_id, $from_id, $data)
     {
-        $uuid = $data[0];
-        $userId = $data[1];
+        $uuid = trim($data[0]);
+        $userId = trim($data[1]);
         //1.7.3之前，是$serv->finish("result");
         $weixin = new WeiXin($uuid, $userId);
         $weixin->loadConfig([
