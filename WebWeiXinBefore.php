@@ -33,6 +33,11 @@ class WebWeiXinBefore{
             chmod($this->cookieFolder, 0777);
         }
         $this->cookie = $this->cookieFolder."cookie.cookie";
+        $this->key = $this->cookieFolder."key.key";
+        chmod($this->cookie, 0777);
+        file_put_contents($this->cookie, '');
+        chmod($this->key, 0777);
+        file_put_contents($this->cookie, '');
     }
     public function loadConfig($config){
         if (isset($config['DEBUG'])){
@@ -135,7 +140,7 @@ class WebWeiXinBefore{
         $this->_echo($this->uuid);
         $this->_echo("/usr/bin/php ".__DIR__."/WebWeiXin.php ".$this->uuid);
         $cmd = "/usr/bin/php ".__DIR__."/WebWeiXin.php ".$this->uuid." ".$this->userId;
-        pclose(popen($cmd.' > /tmp/vbot.log &', 'r'));
+        pclose(popen($cmd.' > /tmp/'.$this->userId.'.log &', 'r'));
 
         /*$weixin = new WebWeiXin($this->uuid, 123);
         $weixin->loadConfig([
