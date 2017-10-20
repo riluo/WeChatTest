@@ -4,7 +4,7 @@ require_once 'QRcode.class.php';
 
 
 class WebWeiXinBefore{
-    public function __construct(){
+    public function __construct($userId){
         $this->DEBUG = false;
         $this->uuid = "";
         $this->base_uri = 'https://wx.qq.com/cgi-bin/mmwebwx-bin';
@@ -26,7 +26,12 @@ class WebWeiXinBefore{
         $this->TimeOut = 20;  # 同步最短时间间隔（单位：秒）
         $this->media_count = -1;
 
-        $this->cookie = "cookie.cookie";
+        $this->cookieFolder = getcwd()."/cookie/".$userId."/";
+        if(!is_dir($this->cookieFolder)){
+            mkdir($this->cookieFolder,0777,true);
+            chmod($this->cookieFolder, 0777);
+        }
+        $this->cookie = $this->cookieFolder."cookie.cookie";
     }
     public function loadConfig($config){
         if (isset($config['DEBUG'])){
@@ -128,7 +133,7 @@ class WebWeiXinBefore{
         $this->_echo('[*] 请使用微信扫描二维码以登录 ... ');
         $this->_echo($this->uuid);
         $this->_echo("/usr/bin/php /Users/zhaoliang/Documents/develop/WeChatTest/WebWeiXin.php ".$this->uuid);
-        $cmd = "/usr/bin/php /Users/zhaoliang/Documents/develop/WeChatTest/WebWeiXin.php ".$this->uuid;
+        $cmd = "/usr/bin/php ".__DIR__."/WebWeiXin.php ".$this->uuid;
         pclose(popen($cmd.' > /tmp/vbot.log &', 'r'));
 
         /*$weixin = new WebWeiXin($this->uuid, 123);
@@ -899,8 +904,8 @@ class WebWeiXin{
     }
 
     public function init(){
-        if(file_exists("key.key")){
-            $array = json_decode(file_get_contents("key.key"),true);
+        if(file_exists($this->cookieFolder."key.key")){
+            $array = json_decode(file_get_contents($this->cookieFolder."key.key"),true);
             if($array){
                 $this->skey = $array['skey'];
                 $this->sid = $array['sid'];
@@ -920,7 +925,7 @@ class WebWeiXin{
         return false;
     }
     public function initSave(){
-        file_put_contents("key.key",self::json_encode([
+        file_put_contents($this->cookieFolder."key.key",self::json_encode([
             'skey'=>$this->skey,
             'sid'=>$this->sid,
             'uin'=>$this->uin,
@@ -1127,7 +1132,7 @@ class ListenMsg extends Thread {
     }
 }
 
-$weixin = new WebWeiXinBefore();
+$weixin = new WebWeiXinBefore(123);
 $weixin->loadConfig([
     'interactive'=>true,
     //'autoReplyMode'=>true,

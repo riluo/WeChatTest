@@ -65,8 +65,12 @@ class WebWeiXin{
         ];
         $this->TimeOut = 20;  # 同步最短时间间隔（单位：秒）
         $this->media_count = -1;
-
-        $this->cookie = "cookie.cookie";
+        $this->cookieFolder = getcwd()."/cookie/".$userId."/";
+        if(!is_dir($this->cookieFolder)){
+            mkdir($this->cookieFolder,0777,true);
+            chmod($this->cookieFolder, 0777);
+        }
+        $this->cookie = $this->cookieFolder."cookie.cookie";
     }
     public function loadConfig($config){
         if (isset($config['DEBUG'])){
@@ -587,8 +591,8 @@ class WebWeiXin{
     }
 
     public function init(){
-        if(file_exists("key.key")){
-            $array = json_decode(file_get_contents("key.key"),true);
+        if(file_exists($this->cookieFolder."key.key")){
+            $array = json_decode(file_get_contents($this->cookieFolder."key.key"),true);
             if($array){
                 $this->skey = $array['skey'];
                 $this->sid = $array['sid'];
@@ -608,7 +612,7 @@ class WebWeiXin{
         return false;
     }
     public function initSave(){
-        file_put_contents("key.key",self::json_encode([
+        file_put_contents($this->cookieFolder."key.key",self::json_encode([
             'skey'=>$this->skey,
             'sid'=>$this->sid,
             'uin'=>$this->uin,
