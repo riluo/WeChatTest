@@ -4,7 +4,7 @@ function raw_input($str){
    fwrite(STDOUT,$str);
    return trim(fgets(STDIN));
 }
-class WebWeiXin{
+class WeiXin{
     public function __toString(){
         $description =
             "=========================\n" .
@@ -489,14 +489,7 @@ class WebWeiXin{
     }
 
     public function listenMsgMode(){
-        $this->_echo('[*] 进入消息监听模式 ... 成功');
-
-        $this->_run('[*] 进行同步线路测试 ... ', 'testsynccheck');
-
-        $playWeChat = 0;
-        $redEnvelope = 0;
-
-        while (true){
+        //while (true){
             $this->lastCheckTs = time();
             list($retcode, $selector) = $this->synccheck();
             if ($this->DEBUG){
@@ -507,11 +500,11 @@ class WebWeiXin{
 
             if ($retcode == '1100'){
                 $this->_echo('[*] 你在手机上登出了微信，债见');
-                break;
+                return "logout";
             }
             if ($retcode == '1101'){
                 $this->_echo('[*] 你在其他地方登录了 WEB 版微信，债见');
-                break;
+                return "login in another address";
             }elseif($retcode == '0'){
                 if ($selector == '2'){
                     $r = $this->webwxsync();
@@ -545,7 +538,7 @@ class WebWeiXin{
             if ((time() - $this->lastCheckTs) <= 20){
                 sleep(time() - $this->lastCheckTs);
             }
-        }
+        //}
     }
 
     //开始登录
@@ -582,24 +575,11 @@ class WebWeiXin{
         $end =  (float)sprintf('%.0f',(floatval($t3)+floatval($t4))*1000);
         $this->_echo('[*] time taks ...' + $end - $begin);
 
+        $this->listenMsgMode();
 
+        $this->_echo('[*] 进入消息监听模式 ... 成功');
 
-        if ($this->DEBUG)
-            echo($this);
-
-        if(extension_loaded("pcntl")){
-            $pf = pcntl_fork();
-            if ($pf){ //父进程负责监听消息
-                $this->listenMsgMode();
-                exit();
-            }
-        }elseif(extension_loaded("pthreads")){
-            return true;
-        }else{
-            $this->_echo('[*] 缺少扩展，暂时只能获取监听消息，不能发送消息');
-            $this->_echo('[*] 如果要发消息，请安装pcntl或者pthreads扩展');
-            $this->listenMsgMode();
-        }
+        $this->_run('[*] 进行同步线路测试 ... ', 'testsynccheck');
 
         sleep(2);
         exit();
@@ -814,35 +794,12 @@ class WebWeiXin{
     }
 
 }
-if(!extension_loaded('pthreads')){
-    class Thread {
-        public function start(){
-
-        }
-    }
-}
-class ListenMsg extends Thread {
-    private $weixin;
-    public function __construct(WebWeiXin $weixin){
-        # code...
-        $this->weixin = $weixin;
-    }
-    public function run(){
-        if($this->weixin){
-            $this->weixin->_echo("[*] 进入消息监听模式 ......ListenMsg...run");
-            $this->weixin->listenMsgMode();
-        }
-    }
-}
 $uuid = $argv[1];
 $userId = $argv[2];
-$weixin = new WebWeiXin($uuid, $userId);
+$weixin = new WeiXin($uuid, $userId);
 $weixin->loadConfig([
     'interactive'=>true,
     //'autoReplyMode'=>true,
     'DEBUG'=>true
 ]);
-if($weixin->start()){
-    $msg  = new ListenMsg($weixin);
-    $msg->start();
-}
+$weixin->start();
