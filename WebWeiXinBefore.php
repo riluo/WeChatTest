@@ -27,6 +27,7 @@ class WebWeiXinBefore{
         $this->TimeOut = 20;  # 同步最短时间间隔（单位：秒）
         $this->media_count = -1;
 
+        umask(0);
         $this->cookieFolder = getcwd()."/cookie/".$userId."/";
         if(!is_dir($this->cookieFolder)){
             mkdir($this->cookieFolder,0777,true);
@@ -37,7 +38,7 @@ class WebWeiXinBefore{
         chmod($this->cookie, 0777);
         file_put_contents($this->cookie, '');
         chmod($this->key, 0777);
-        file_put_contents($this->cookie, '');
+        file_put_contents($this->key, '');
     }
     public function loadConfig($config){
         if (isset($config['DEBUG'])){
