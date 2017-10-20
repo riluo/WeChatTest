@@ -7,6 +7,7 @@ class WebWeiXinBefore{
     public function __construct($userId){
         $this->DEBUG = false;
         $this->uuid = "";
+        $this->userId = $userId;
         $this->base_uri = 'https://wx.qq.com/cgi-bin/mmwebwx-bin';
         $this->redirect_uri = 'https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxnewloginpage';//
         $this->synckey = '';
@@ -133,7 +134,7 @@ class WebWeiXinBefore{
         $this->_echo('[*] 请使用微信扫描二维码以登录 ... ');
         $this->_echo($this->uuid);
         $this->_echo("/usr/bin/php ".__DIR__."/WebWeiXin.php ".$this->uuid);
-        $cmd = "/usr/bin/php ".__DIR__."/WebWeiXin.php ".$this->uuid;
+        $cmd = "/usr/bin/php ".__DIR__."/WebWeiXin.php ".$this->uuid." ".$this->userId;
         pclose(popen($cmd.' > /tmp/vbot.log &', 'r'));
 
         /*$weixin = new WebWeiXin($this->uuid, 123);
@@ -1131,8 +1132,8 @@ class ListenMsg extends Thread {
         }
     }
 }
-
-$weixin = new WebWeiXinBefore(123);
+$userId = rand(10001,19999);
+$weixin = new WebWeiXinBefore($userId);
 $weixin->loadConfig([
     'interactive'=>true,
     //'autoReplyMode'=>true,

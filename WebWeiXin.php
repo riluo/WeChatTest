@@ -819,6 +819,7 @@ class ListenMsg extends Thread {
     }
 }
 $uuid = $argv[1];
+$userId = $argv[2];
 $weixin = new WebWeiXin($uuid, 123);
 $weixin->loadConfig([
     'interactive'=>true,
