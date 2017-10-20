@@ -150,7 +150,7 @@ class WebWeiXinBefore{
             echo "send...", PHP_EOL;
         });
         //注册数据接收回调
-        /*$client->on("receive", function($cli, $data){
+        $client->on("receive", function($cli, $data){
             echo "Received: ".$data."\n";
         });
         //注册连接失败回调
@@ -160,7 +160,7 @@ class WebWeiXinBefore{
         //注册连接关闭回调
         $client->on("close", function($cli){
             echo "Connection close\n";
-        });*/
+        });
         //发起连接
         $client->connect('127.0.0.1', 9501, 0.5);
         //client请求结束
