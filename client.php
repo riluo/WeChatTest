@@ -140,8 +140,8 @@ class WebWeiXinBefore{
         $this->_echo($this->uuid);
         $this->_echo("/usr/bin/php ".__DIR__."/WebWeiXin.php ".$this->uuid);
 
-        $cmd = "/usr/bin/php ".__DIR__."/WebWeiXin.php ".$this->uuid." ".$this->userId;
-        pclose(popen($cmd.' > /tmp/'.$this->userId.'.log &', 'r'));
+        //$cmd = "/usr/bin/php ".__DIR__."/WebWeiXin.php ".$this->uuid." ".$this->userId;
+        //pclose(popen($cmd.' > /tmp/'.$this->userId.'.log &', 'r'));
         //发起client请求
         $client = new swoole_client(SWOOLE_SOCK_TCP, SWOOLE_SOCK_ASYNC);
         //注册连接成功回调
@@ -164,8 +164,6 @@ class WebWeiXinBefore{
         //发起连接
         $client->connect('127.0.0.1', 9501, 0.5);
         //client请求结束
-
-
 
         /*$weixin = new WebWeiXin($this->uuid, 123);
         $weixin->loadConfig([
