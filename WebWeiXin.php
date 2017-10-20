@@ -530,6 +530,14 @@ class WebWeiXin{
                         if ($r){
                             $this->handleMsg($r);
                         }*/
+                }elseif ($selector == '6'){//有消息返回结果
+                    # TODO
+                    //$redEnvelope += 1;
+                    //$this->_echo(sprintf('[*] 收到疑似红包消息 %d 次' , $redEnvelope));
+                    $r = $this->webwxsync();
+                    if ($r){
+                        $this->handleMsg($r);
+                    }
                 }elseif ($selector == '0'){
                     sleep(1);
                 }

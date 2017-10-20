@@ -37,21 +37,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WebWeiXin.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="WebWeiXin.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/WebWeiXin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.3333335" vertical-offset="12064" max-vertical-offset="12615">
-              <caret line="819" column="38" selection-start-line="819" selection-start-column="38" selection-end-line="819" selection-end-column="38" />
+            <state vertical-scroll-proportion="0.7277677" vertical-offset="7729" max-vertical-offset="12735">
+              <caret line="535" column="22" selection-start-line="535" selection-start-column="22" selection-end-line="535" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WebWeiXinBefore.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="WebWeiXinBefore.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebWeiXinBefore.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5644283" vertical-offset="4609" max-vertical-offset="5160">
-              <caret line="327" column="5" selection-start-line="327" selection-start-column="5" selection-end-line="327" selection-end-column="5" />
+            <state vertical-scroll-proportion="-1.6862745" vertical-offset="4609" max-vertical-offset="5160">
+              <caret line="313" column="18" selection-start-line="313" selection-start-column="18" selection-end-line="313" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -253,18 +253,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebWeiXin.php">
+    <entry file="file://$PROJECT_DIR$/WebWeiXinBefore.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.3333335" vertical-offset="12064" max-vertical-offset="12615">
-          <caret line="819" column="38" selection-start-line="819" selection-start-column="38" selection-end-line="819" selection-end-column="38" />
+        <state vertical-scroll-proportion="-1.6862745" vertical-offset="4609" max-vertical-offset="5160">
+          <caret line="313" column="18" selection-start-line="313" selection-start-column="18" selection-end-line="313" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebWeiXinBefore.php">
+    <entry file="file://$PROJECT_DIR$/WebWeiXin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5644283" vertical-offset="4609" max-vertical-offset="5160">
-          <caret line="327" column="5" selection-start-line="327" selection-start-column="5" selection-end-line="327" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.7277677" vertical-offset="7729" max-vertical-offset="12735">
+          <caret line="535" column="22" selection-start-line="535" selection-start-column="22" selection-end-line="535" selection-end-column="22" />
           <folding />
         </state>
       </provider>
