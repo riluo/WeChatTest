@@ -794,12 +794,3 @@ class WeiXin{
     }
 
 }
-$uuid = $argv[1];
-$userId = $argv[2];
-$weixin = new WeiXin($uuid, $userId);
-$weixin->loadConfig([
-    'interactive'=>true,
-    //'autoReplyMode'=>true,
-    'DEBUG'=>true
-]);
-$weixin->start();
