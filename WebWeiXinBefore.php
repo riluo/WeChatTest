@@ -132,7 +132,7 @@ class WebWeiXinBefore{
         $this->genQRCode();
         $this->_echo('[*] 请使用微信扫描二维码以登录 ... ');
         $this->_echo($this->uuid);
-        $this->_echo("/usr/bin/php /Users/zhaoliang/Documents/develop/WeChatTest/WebWeiXin.php ".$this->uuid);
+        $this->_echo("/usr/bin/php ".__DIR__."/WebWeiXin.php ".$this->uuid);
         $cmd = "/usr/bin/php ".__DIR__."/WebWeiXin.php ".$this->uuid;
         pclose(popen($cmd.' > /tmp/vbot.log &', 'r'));
 
