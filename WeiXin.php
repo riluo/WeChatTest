@@ -582,7 +582,6 @@ class WeiXin{
         $this->_run('[*] 进行同步线路测试 ... ', 'testsynccheck');
 
         sleep(2);
-        exit();
         return false;
     }
 
