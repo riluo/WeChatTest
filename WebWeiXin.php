@@ -562,6 +562,10 @@ class WebWeiXin{
             }
             break;
         }
+
+        list($t1, $t2) = explode(' ', microtime());
+        $begin =  (float)sprintf('%.0f',(floatval($t1)+floatval($t2))*1000);
+
         $this->_run('[*] 正在登录 ... ', 'login');
         //}
 
@@ -573,6 +577,12 @@ class WebWeiXin{
             $this->MemberCount, count($this->MemberList)));
         $this->_echo(sprintf('[*] %d 个直接联系人 ', count($this->ContactList)));
         $this->_echo('[*] 微信网页版 ... 开动');
+
+        list($t3, $t4) = explode(' ', microtime());
+        $end =  (float)sprintf('%.0f',(floatval($t3)+floatval($t4))*1000);
+        $this->_echo('[*] time taks ...' + $end - $begin);
+
+
         if ($this->DEBUG)
             echo($this);
 
