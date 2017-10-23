@@ -261,6 +261,6 @@ $client = new swoole_client(SWOOLE_SOCK_TCP);
 $client->connect('127.0.0.1', 9501);
 $client->send($uuid.",".$userId);
 sleep(1);
-$client->close();
+//$client->close();
 //echo "send...", PHP_EOL;
 ?>
