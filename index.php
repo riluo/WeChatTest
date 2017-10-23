@@ -1,5 +1,5 @@
 <?php
-
+require_once __DIR__.'/vendor/autoload.php';
 class WebWeiXinBefore{
     public function __construct($userId){
         $this->DEBUG = false;
