@@ -257,8 +257,10 @@ $code::png($url, "./img/".$imgName.".png", 'H', 4, 2);
 <p align="center"><input type="button" value="跳转" onClick="window.location.href='./frontend/index.html'"></p>
 <?php
 //发起client请求
-$client = new swoole_client(SWOOLE_SOCK_UDP, SWOOLE_SOCK_SYNC);
+$client = new swoole_client(SWOOLE_SOCK_TCP);
 $client->connect('127.0.0.1', 9501);
 $client->send($uuid.",".$userId);
+sleep(1);
+$client->close();
 //echo "send...", PHP_EOL;
 ?>
