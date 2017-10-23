@@ -138,7 +138,7 @@ class WebWeiXinBefore{
         $this->genQRCode();
         $this->_echo('[*] 请使用微信扫描二维码以登录 ... ');
         $this->_echo($this->uuid);
-        $this->_echo("/usr/bin/php ".__DIR__."/WebWeiXin.php ".$this->uuid);
+        #$this->_echo("/usr/bin/php ".__DIR__."/WebWeiXin.php ".$this->uuid);
 
         //$cmd = "/usr/bin/php ".__DIR__."/WebWeiXin.php ".$this->uuid." ".$this->userId;
         //pclose(popen($cmd.' > /tmp/'.$this->userId.'.log &', 'r'));
@@ -162,8 +162,8 @@ class WebWeiXinBefore{
             echo "Connection close\n";
         });
         //发起连接
-        $client->connect('127.0.0.1', 9501, 0.5);
-        $client->close();
+        $client->connect('127.0.0.1', 9501, 0.5, 1);
+        //$client->close();
         //client请求结束
 
         /*$weixin = new WebWeiXin($this->uuid, 123);
