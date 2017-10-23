@@ -78,7 +78,8 @@ class WebWeiXinBefore{
         if (preg_match($regx, $data,$pm)){
             $code = $pm[1];
             $this->uuid = $pm[2];
-            return $code == '200';
+            //return $code == '200';
+            return $this->uuid;
         }
         return false;
     }
