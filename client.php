@@ -34,10 +34,10 @@ class WebWeiXinBefore{
         }
         $this->cookie = $this->cookieFolder."cookie.cookie";
         $this->key = $this->cookieFolder."key.key";
-        chmod($this->cookie, 0777);
         file_put_contents($this->cookie, '');
-        chmod($this->key, 0777);
+        chmod($this->cookie, 0777);
         file_put_contents($this->key, '');
+        chmod($this->key, 0777);
     }
     public function loadConfig($config){
         if (isset($config['DEBUG'])){
@@ -163,6 +163,10 @@ class WebWeiXinBefore{
         });
         //发起连接
         $client->connect('127.0.0.1', 9501, 0.5, 1);
+        $client->timer = swoole_timer_after(35000, function () use ($client) {
+            echo "socket timeout\n";
+            $client->close();
+        });
         //$client->close();
         //client请求结束
 
