@@ -309,28 +309,8 @@ $code::png($url, "./img/".$imgName.".png", 'H', 4, 2);
 <p align="center"><input type="button" value="跳转" onClick="window.location.href='./frontend/index.html'"></p>
 <?php
 //发起client请求
-$client = new swoole_client(SWOOLE_SOCK_TCP, SWOOLE_SOCK_ASYNC);
-//注册连接成功回调
-$client->on("connect", function($cli) {
-    $cli->send($this->uuid.",".$this->userId);
-    echo "send...", PHP_EOL;
-});
-//注册数据接收回调
-$client->on("receive", function($cli, $data){
-    echo "Received: ".$data."\n";
-});
-//注册连接失败回调
-$client->on("error", function($cli){
-    echo "Connect failed\n";
-});
-//注册连接关闭回调
-$client->on("close", function($cli){
-    echo "Connection close\n";
-});
-//发起连接
-$client->connect('127.0.0.1', 9501, 0.5, 1);
-$client->timer = swoole_timer_after(35000, function () use ($client) {
-    echo "socket timeout\n";
-    $client->close();
-});
+$client = new swoole_client(SWOOLE_SOCK_UDP, SWOOLE_SOCK_SYNC);
+$client->connect('127.0.0.1', 9501);
+$client->send($this->uuid.",".$this->userId);
+//echo "send...", PHP_EOL;
 ?>
