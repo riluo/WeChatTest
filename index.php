@@ -299,6 +299,7 @@ $weixin->loadConfig([
 $uuid = $weixin->getUUID();
 $url = 'https://login.weixin.qq.com/l/'.$uuid;
 $imgName = time();
+use PHPQRCode\QRcode;
 $code = new QRcode();
 $code::png($url, "./img/".$imgName.".png", 'H', 4, 2);
 ?>
