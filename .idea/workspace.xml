@@ -27,6 +27,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="client.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-134.83333" vertical-offset="2134" max-vertical-offset="5550">
+              <caret line="358" column="37" selection-start-line="358" selection-start-column="30" selection-end-line="358" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -43,8 +53,8 @@
       <file leaf-file-name="webClient.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/webClient.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.07666099" vertical-offset="0" max-vertical-offset="587">
-              <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+            <state vertical-scroll-proportion="0.79216355" vertical-offset="0" max-vertical-offset="615">
+              <caret line="31" column="11" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -53,7 +63,7 @@
       <file leaf-file-name="MsgServer.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MsgServer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-28.75" vertical-offset="0" max-vertical-offset="975">
+            <state vertical-scroll-proportion="-15.0" vertical-offset="330" max-vertical-offset="975">
               <caret line="46" column="37" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="37" />
               <folding />
             </state>
@@ -468,22 +478,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.69335604" vertical-offset="4963" max-vertical-offset="5550">
-          <caret line="358" column="37" selection-start-line="358" selection-start-column="30" selection-end-line="358" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MsgServer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-28.75" vertical-offset="0" max-vertical-offset="975">
-          <caret line="46" column="37" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.8627453" vertical-offset="3505" max-vertical-offset="4065">
@@ -495,10 +489,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/MsgServer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.0" vertical-offset="330" max-vertical-offset="975">
+          <caret line="46" column="37" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-134.83333" vertical-offset="2134" max-vertical-offset="5550">
+          <caret line="358" column="37" selection-start-line="358" selection-start-column="30" selection-end-line="358" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/webClient.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.07666099" vertical-offset="0" max-vertical-offset="587">
-          <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.79216355" vertical-offset="0" max-vertical-offset="615">
+          <caret line="31" column="11" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="11" />
           <folding />
         </state>
       </provider>
