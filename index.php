@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__.'/vendor/autoload.php';
 class WebWeiXinBefore{
-    public function __construct(){
+    public function __construct($userId){
         $this->DEBUG = false;
         $this->uuid = "";
         $this->base_uri = 'https://wx.qq.com/cgi-bin/mmwebwx-bin';
@@ -82,7 +82,7 @@ class WebWeiXinBefore{
         }
         return false;
     }
-    
+
     public function _run($msg,$func){
         echo($msg);
         if($this->$func()){
@@ -237,7 +237,7 @@ class WebWeiXinBefore{
 
 
 $userId = rand(10001,19999);
-$weixin = new WebWeiXinBefore();
+$weixin = new WebWeiXinBefore($userId);
 $weixin->loadConfig([
     'interactive'=>true,
     //'autoReplyMode'=>true,
