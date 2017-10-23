@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="bd4c0a60-8267-44ea-be14-fc82d1fe586f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="WeChatTest.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,8 +31,8 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.73214287" vertical-offset="4285" max-vertical-offset="4845">
-              <caret line="312" column="34" selection-start-line="312" selection-start-column="34" selection-end-line="312" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.42857143" vertical-offset="1035" max-vertical-offset="4050">
+              <caret line="84" column="4" selection-start-line="84" selection-start-column="4" selection-end-line="84" selection-end-column="4" />
               <folding>
                 <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#p#0;n#!!top" expanded="true" />
@@ -447,14 +448,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.875" vertical-offset="2175" max-vertical-offset="5550">
-          <caret line="156" column="18" selection-start-line="0" selection-start-column="0" selection-end-line="364" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/autoload.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
@@ -463,10 +456,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.69335604" vertical-offset="4963" max-vertical-offset="5550">
+          <caret line="358" column="37" selection-start-line="358" selection-start-column="30" selection-end-line="358" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.73214287" vertical-offset="4285" max-vertical-offset="4845">
-          <caret line="312" column="34" selection-start-line="312" selection-start-column="34" selection-end-line="312" selection-end-column="34" />
+        <state vertical-scroll-proportion="0.42857143" vertical-offset="1035" max-vertical-offset="4050">
+          <caret line="84" column="4" selection-start-line="84" selection-start-column="4" selection-end-line="84" selection-end-column="4" />
           <folding>
             <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#p#0;n#!!top" expanded="true" />

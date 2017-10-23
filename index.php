@@ -1,10 +1,9 @@
 <?php
 require_once __DIR__.'/vendor/autoload.php';
 class WebWeiXinBefore{
-    public function __construct($userId){
+    public function __construct(){
         $this->DEBUG = false;
         $this->uuid = "";
-        $this->userId = $userId;
         $this->base_uri = 'https://wx.qq.com/cgi-bin/mmwebwx-bin';
         $this->redirect_uri = 'https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxnewloginpage';//
         $this->synckey = '';
@@ -83,59 +82,7 @@ class WebWeiXinBefore{
         }
         return false;
     }
-
-    //开始登录
-    public function start(){
-        $this->_echo('[*] 微信网页版 ... 开动');
-        $this->_run('[*] 正在获取 uuid ... ', 'getUUID');
-        $this->_echo('[*] 正在获取二维码 ... 成功');
-        $this->genQRCode();
-        $this->_echo('[*] 请使用微信扫描二维码以登录 ... ');
-        $this->_echo($this->uuid);
-        #$this->_echo("/usr/bin/php ".__DIR__."/WebWeiXin.php ".$this->uuid);
-
-        //$cmd = "/usr/bin/php ".__DIR__."/WebWeiXin.php ".$this->uuid." ".$this->userId;
-        //pclose(popen($cmd.' > /tmp/'.$this->userId.'.log &', 'r'));
-        //发起client请求
-        $client = new swoole_client(SWOOLE_SOCK_TCP, SWOOLE_SOCK_ASYNC);
-        //注册连接成功回调
-        $client->on("connect", function($cli) {
-            $cli->send($this->uuid.",".$this->userId);
-            echo "send...", PHP_EOL;
-        });
-        //注册数据接收回调
-        $client->on("receive", function($cli, $data){
-            echo "Received: ".$data."\n";
-        });
-        //注册连接失败回调
-        $client->on("error", function($cli){
-            echo "Connect failed\n";
-        });
-        //注册连接关闭回调
-        $client->on("close", function($cli){
-            echo "Connection close\n";
-        });
-        //发起连接
-        $client->connect('127.0.0.1', 9501, 0.5, 1);
-        $client->timer = swoole_timer_after(35000, function () use ($client) {
-            echo "socket timeout\n";
-            $client->close();
-        });
-        //$client->close();
-        //client请求结束
-
-        /*$weixin = new WebWeiXin($this->uuid, 123);
-        $weixin->loadConfig([
-            'interactive'=>true,
-            //'autoReplyMode'=>true,
-            'DEBUG'=>true
-        ]);
-        if($weixin->start()){
-            $msg  = new ListenMsg($weixin);
-            $msg->start();
-        }*/
-    }
-
+    
     public function _run($msg,$func){
         echo($msg);
         if($this->$func()){
@@ -290,7 +237,7 @@ class WebWeiXinBefore{
 
 
 $userId = rand(10001,19999);
-$weixin = new WebWeiXinBefore($userId);
+$weixin = new WebWeiXinBefore();
 $weixin->loadConfig([
     'interactive'=>true,
     //'autoReplyMode'=>true,
@@ -311,6 +258,6 @@ $code::png($url, "./img/".$imgName.".png", 'H', 4, 2);
 //发起client请求
 $client = new swoole_client(SWOOLE_SOCK_UDP, SWOOLE_SOCK_SYNC);
 $client->connect('127.0.0.1', 9501);
-$client->send($this->uuid.",".$this->userId);
+$client->send($uuid.",".$userId);
 //echo "send...", PHP_EOL;
 ?>
