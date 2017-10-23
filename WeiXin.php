@@ -504,7 +504,8 @@ class WeiXin{
             }
             if ($retcode == '1101'){
                 $this->_echo('[*] 你在其他地方登录了 WEB 版微信，债见');
-                return "login in another address";
+                //return "login in another address";
+                return "logout";
             }elseif($retcode == '0'){
                 if ($selector == '2'){
                     $r = $this->webwxsync();

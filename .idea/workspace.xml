@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bd4c0a60-8267-44ea-be14-fc82d1fe586f" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MsgServer.php" afterPath="$PROJECT_DIR$/MsgServer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WeiXin.php" afterPath="$PROJECT_DIR$/WeiXin.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client.php" afterPath="$PROJECT_DIR$/client.php" />
     </list>
     <ignored path="WeChatTest.iws" />
@@ -27,31 +29,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.php">
+      <file leaf-file-name="client.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="180">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="-11.875" vertical-offset="2040" max-vertical-offset="5490">
+              <caret line="155" column="18" selection-start-line="155" selection-start-column="18" selection-end-line="155" selection-end-column="18" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WebWeiXin.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebWeiXin.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.23529412" vertical-offset="7362" max-vertical-offset="12900">
-              <caret line="490" column="4" selection-start-line="490" selection-start-column="4" selection-end-line="490" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MsgServer.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MsgServer.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MsgServer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.9583335" vertical-offset="352" max-vertical-offset="930">
-              <caret line="33" column="31" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.53287196" vertical-offset="397" max-vertical-offset="990">
+              <caret line="47" column="32" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -60,28 +52,8 @@
       <file leaf-file-name="WeiXin.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WeiXin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.5294118" vertical-offset="9747" max-vertical-offset="12105">
-              <caret line="655" column="29" selection-start-line="655" selection-start-column="28" selection-end-line="655" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WebWeiXinBefore.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebWeiXinBefore.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.9215684" vertical-offset="4609" max-vertical-offset="5160">
-              <caret line="324" column="14" selection-start-line="324" selection-start-column="14" selection-end-line="324" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="client.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/client.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.89619374" vertical-offset="1957" max-vertical-offset="5475">
-              <caret line="165" column="20" selection-start-line="165" selection-start-column="20" selection-end-line="165" selection-end-column="20" />
+            <state vertical-scroll-proportion="1.117647" vertical-offset="7662" max-vertical-offset="12015">
+              <caret line="507" column="30" selection-start-line="507" selection-start-column="24" selection-end-line="507" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -100,9 +72,9 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/WebWeiXinBefore.php" />
         <option value="$PROJECT_DIR$/WebWeiXin.php" />
-        <option value="$PROJECT_DIR$/MsgServer.php" />
-        <option value="$PROJECT_DIR$/WeiXin.php" />
         <option value="$PROJECT_DIR$/client.php" />
+        <option value="$PROJECT_DIR$/WeiXin.php" />
+        <option value="$PROJECT_DIR$/MsgServer.php" />
       </list>
     </option>
   </component>
@@ -302,26 +274,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.875" vertical-offset="2040" max-vertical-offset="5490">
+          <caret line="155" column="18" selection-start-line="155" selection-start-column="18" selection-end-line="155" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/WeiXin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.5294118" vertical-offset="9747" max-vertical-offset="12105">
-          <caret line="655" column="29" selection-start-line="655" selection-start-column="28" selection-end-line="655" selection-end-column="29" />
+        <state vertical-scroll-proportion="1.117647" vertical-offset="7662" max-vertical-offset="12015">
+          <caret line="507" column="30" selection-start-line="507" selection-start-column="24" selection-end-line="507" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MsgServer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.9583335" vertical-offset="352" max-vertical-offset="930">
-          <caret line="33" column="31" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.89619374" vertical-offset="1957" max-vertical-offset="5475">
-          <caret line="165" column="20" selection-start-line="165" selection-start-column="20" selection-end-line="165" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.53287196" vertical-offset="397" max-vertical-offset="990">
+          <caret line="47" column="32" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
           <folding />
         </state>
       </provider>

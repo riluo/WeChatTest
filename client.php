@@ -163,6 +163,7 @@ class WebWeiXinBefore{
         });
         //发起连接
         $client->connect('127.0.0.1', 9501, 0.5);
+        $client->close();
         //client请求结束
 
         /*$weixin = new WebWeiXin($this->uuid, 123);

@@ -42,7 +42,11 @@ class MsgServer
         $weixin->start();
 
         $serv->tick(500, function () use ($serv, &$weixin) {
-            $weixin->listenMsgMode();
+            $returnCode = $weixin->listenMsgMode();
+            if($returnCode == 'logout'){
+                $serv->clearTimer();
+                return "logout";
+            }
         });
 
         //return "result.";//这里告诉任务结束，于是上面的on('finish', array($this, 'onFinish'))就会执行
