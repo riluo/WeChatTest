@@ -382,6 +382,9 @@ class WeiXin{
 
         if ($msg['raw_msg']){
             $srcName = $this->getUserRemarkName($msg['raw_msg']['FromUserName']);
+            if($srcName == '未知群'){
+                return false;
+            }
             $dstName = $this->getUserRemarkName($msg['raw_msg']['ToUserName']);
             $content = $msg['raw_msg']['Content'];//str_replace(['&lt;','&gt;'], ['<','>'], $msg['raw_msg']['Content']);
             $message_id = $msg['raw_msg']['MsgId'];
