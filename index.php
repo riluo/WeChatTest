@@ -258,8 +258,10 @@ $code::png($url, "./img/".$imgName.".png", 'H', 4, 2);
 <?php
 //发起client请求
 $client = new swoole_client(SWOOLE_SOCK_TCP);
-$client->connect('127.0.0.1', 9501);
-$client->send($uuid.",".$userId);
+if (!$client->connect('127.0.0.1', 9501, -1))
+{
+    exit("connect failed. Error: {$client->errCode}\n");
+}$client->send($uuid.",".$userId);
 sleep(1);
 //$client->close();
 //echo "send...", PHP_EOL;
