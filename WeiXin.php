@@ -409,10 +409,13 @@ class WeiXin{
     }
     public function handleMsg($r){
         foreach($r['AddMsgList'] as $msg){
-            $this->_echo('[*] 你有新的消息，请注意查收');
+            //$this->_echo('[*] 你有新的消息，请注意查收');
 
             $msgType = $msg['MsgType'];
             $name = $this->getUserRemarkName($msg['FromUserName']);
+            if($name == '未知群'){
+                return false;
+            }
             $content = $msg['Content']= self::br2nl(html_entity_decode($msg['Content']));//str_replace(['&lt;','&gt;'], ['<','>'], $msg['Content']);
             $msgid = $msg['MsgId'];
             if ($this->DEBUG||true){
