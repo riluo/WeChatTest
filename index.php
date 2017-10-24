@@ -236,8 +236,11 @@ class WebWeiXinBefore{
 
 }
 
-
-$userId = rand(10001,19999);
+if($_GET['userId']){
+    $userId = intval($_GET['userId']);
+} else {
+    $userId = rand(10001,19999);
+}
 $weixin = new WebWeiXinBefore($userId);
 $weixin->loadConfig([
     'interactive'=>true,

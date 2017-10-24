@@ -378,6 +378,9 @@ class WeiXin{
             }
         }
 
+        $this->_echo(getcwd());
+        $this->_echo($fn);
+
         return str_replace(getcwd(),'http://172.16.117.161/WeChatTest/',$fn);
     }
 
