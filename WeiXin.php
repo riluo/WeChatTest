@@ -154,8 +154,11 @@ class WeiXin{
         $channel = $connection->channel();
         $channel->queue_declare('self', false, false, false, false);
         foreach($this->ContactList as $contacts) {
+            //头像开始 如果已有联系人图片，则跳过，否则保存
+            $avatar = $this->webwxgeticon($this->User['UserName'],$this->User['NickName'],$this->uin);
+            //头像结束
             //逗号分割可能有误，使用$％分割
-            $msg = new AMQPMessage($this->userId.'$％'.$this->uin.'$％'.$this->sid.'$％'.$this->skey.'$％'.$this->pass_ticket.'$％'.$this->deviceId.'$％'.$this->User['UserName'].'$％'.$this->User['NickName']);
+            $msg = new AMQPMessage($this->userId.'$％'.$this->uin.'$％'.$this->sid.'$％'.$this->skey.'$％'.$this->pass_ticket.'$％'.$this->deviceId.'$％'.$this->User['UserName'].'$％'.$this->User['NickName'].'$％'.$avatar);
             $channel->basic_publish($msg, '', 'self');
         }
         $channel->close();
@@ -349,12 +352,33 @@ class WeiXin{
         return $fn;
     }
 
-    public function webwxgeticon($id){
+    public function webwxgeticon($id,$nickname,$remarkname){
         $url = sprintf($this->base_uri .
             '/webwxgeticon?username=%s&skey=%s' , $id, $this->skey);
         $data = $this->_get($url);
-        $fn = 'img_' . $id . '.jpg';
-        return $this->_saveFile($fn, $data, 'webwxgeticon');
+        $fn = mdf($nickname.'$%'.$remarkname) . '.jpg';
+
+        if (isset($this->saveSubFolders['webwxgeticon'])){
+            $dirName = $this->saveFolder.$this->saveSubFolders['webwxgeticon'].'/'.$this->uin;
+            umask(0);
+            if(!is_dir($dirName)){
+                mkdir($dirName,0777,true);
+                chmod($dirName, 0777);
+            }
+            $fn = $dirName.'/'. $fn;
+            if(file_exists($fn)){
+                return $fn;
+            }
+            $f = fopen($fn, 'wb');
+            if($f){
+                fwrite($f,$data);
+                fclose($f);
+            }else{
+                $this->_echo('[*] 保存失败 - '.$fn);
+            }
+        }
+
+        return $fn;
     }
 
     public function webwxgetheadimg(){
@@ -670,8 +694,11 @@ class WeiXin{
         $channel->queue_declare('contact', false, false, false, false);
 
         foreach($this->ContactList as $contacts) {
+            //头像开始 如果已有联系人图片，则跳过，否则保存
+            $avatar = $this->webwxgeticon($contacts['UserName'],$contacts['NickName'],$contacts['RemarkName']);
+            //头像结束
             //逗号分割可能有误，使用$％分割
-            $msg = new AMQPMessage($this->userId.'$％'.$this->uin.'$％'.$contacts['UserName'].'$％'.$contacts['NickName'].'$％'.$contacts['RemarkName'].'$％'.$contacts['Sex']);
+            $msg = new AMQPMessage($this->userId.'$％'.$this->uin.'$％'.$contacts['UserName'].'$％'.$contacts['NickName'].'$％'.$contacts['RemarkName'].'$％'.$contacts['Sex'].'$％'.$avatar);
             $channel->basic_publish($msg, '', 'contact');
         }
         $channel->close();

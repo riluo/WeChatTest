@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bd4c0a60-8267-44ea-be14-fc82d1fe586f" name="Default" comment="" />
+    <list default="true" id="bd4c0a60-8267-44ea-be14-fc82d1fe586f" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WeiXin.php" afterPath="$PROJECT_DIR$/WeiXin.php" />
+    </list>
     <ignored path="WeChatTest.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -28,8 +30,8 @@
       <file leaf-file-name="WeiXin.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/WeiXin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="13.22898" vertical-offset="0" max-vertical-offset="13815">
-              <caret line="483" column="53" selection-start-line="483" selection-start-column="53" selection-end-line="483" selection-end-column="53" />
+            <state vertical-scroll-proportion="0.44007155" vertical-offset="2214" max-vertical-offset="14220">
+              <caret line="160" column="206" selection-start-line="160" selection-start-column="206" selection-end-line="160" selection-end-column="206" />
               <folding>
                 <element signature="e#72#119#0#PHP" expanded="true" />
               </folding>
@@ -59,8 +61,8 @@
         <option value="$PROJECT_DIR$/receive_contact.php" />
         <option value="$PROJECT_DIR$/receive_self.php" />
         <option value="$PROJECT_DIR$/MsgServer.php" />
-        <option value="$PROJECT_DIR$/WeiXin.php" />
         <option value="$PROJECT_DIR$/receive_chat.php" />
+        <option value="$PROJECT_DIR$/WeiXin.php" />
       </list>
     </option>
   </component>
@@ -524,8 +526,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/WeiXin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="13.22898" vertical-offset="0" max-vertical-offset="13815">
-          <caret line="483" column="53" selection-start-line="483" selection-start-column="53" selection-end-line="483" selection-end-column="53" />
+        <state vertical-scroll-proportion="0.44007155" vertical-offset="2214" max-vertical-offset="14220">
+          <caret line="160" column="206" selection-start-line="160" selection-start-column="206" selection-end-line="160" selection-end-column="206" />
           <folding>
             <element signature="e#72#119#0#PHP" expanded="true" />
           </folding>
