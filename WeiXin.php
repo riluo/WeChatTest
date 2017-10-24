@@ -378,10 +378,7 @@ class WeiXin{
             }
         }
 
-        $this->_echo(getcwd());
-        $this->_echo($fn);
-
-        return str_replace(getcwd(),'http://172.16.117.161/WeChatTest/',$fn);
+        return $fn;
     }
 
     public function webwxgetheadimg(){
@@ -699,6 +696,13 @@ class WeiXin{
         foreach($this->ContactList as $contacts) {
             //头像开始 如果已有联系人图片，则跳过，否则保存
             $avatar = $this->webwxgeticon($contacts['UserName'],$contacts['NickName'],$contacts['RemarkName']);
+            $this->_echo("------------");
+            $this->_echo(getcwd());
+            $this->_echo($avatar);
+            $this->_echo(str_replace(getcwd(),"http://172.16.117.161/WeChatTest",$avatar));
+            $this->_echo("------------");
+
+
             //头像结束
             //逗号分割可能有误，使用$％分割
             $msg = new AMQPMessage($this->userId.'$％'.$this->uin.'$％'.$contacts['UserName'].'$％'.$contacts['NickName'].'$％'.$contacts['RemarkName'].'$％'.$contacts['Sex'].'$％'.$avatar);

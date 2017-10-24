@@ -236,7 +236,7 @@ class WebWeiXinBefore{
 
 }
 
-if($_GET['userId']){
+if(isset($_GET['userId'])){
     $userId = intval($_GET['userId']);
 } else {
     $userId = rand(10001,19999);
