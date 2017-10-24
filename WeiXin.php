@@ -148,6 +148,22 @@ class WeiXin{
         $dic = $this->_post($url, $params);
         $this->SyncKey = $dic['SyncKey'];
         $this->User = $dic['User'];
+
+        //开始队列
+        $connection = new AMQPStreamConnection('localhost', 5672, 'guest', 'guest');
+        $channel = $connection->channel();
+        $channel->queue_declare('self', false, false, false, false);
+        foreach($this->ContactList as $contacts) {
+            //逗号分割可能有误，使用$％分割
+            $msg = new AMQPMessage($this->uin.'$％'.$this->sid.'$％'.$this->skey.'$％'.$this->pass_ticket.'$％'.$this->deviceId.'$％'.$this->User['UserName'].'$％'.$this->User['NickName']);
+            $channel->basic_publish($msg, '', 'self');
+        }
+        $channel->close();
+        $connection->close();
+        //结束队列
+
+
+
         # synckey for synccheck
         $tempArr = [];
         if(is_array($this->SyncKey['List'])){
@@ -201,10 +217,6 @@ class WeiXin{
                     unset($ContactList[$key]);
                     //$this->GroupList[] = $Contact;
                 }elseif ($Contact['UserName'] == $this->User['UserName']){  # 自己
-
-                    var_dump($Contact);
-
-
                     unset($ContactList[$key]);
                 }
             }
@@ -431,7 +443,9 @@ class WeiXin{
             }
             $content = $msg['Content']= self::br2nl(html_entity_decode($msg['Content']));//str_replace(['&lt;','&gt;'], ['<','>'], $msg['Content']);
             $msgid = $msg['MsgId'];
-            if ($this->DEBUG||true){
+
+            //队列发送信息开始
+            /*if ($this->DEBUG||true){
                 if(!is_dir('msg')){
                     umask(0);
                     mkdir('msg',0777,true);
@@ -441,7 +455,8 @@ class WeiXin{
                 fwrite($f,self::json_encode($msg));
                 $this->_echo( '[*] 该消息已储存到文件: ' . $fn);
                 fclose($f);
-            }
+            }*/
+            //队列发送信息结束
 
             if ($msgType == 1){
                 $raw_msg = ['raw_msg'=> $msg];
@@ -588,18 +603,18 @@ class WeiXin{
         $this->_echo(sprintf('[*] %d 个直接联系人 ', count($this->ContactList)));
 
         //开始队列
-        //$connection = new AMQPStreamConnection('localhost', 5672, 'guest', 'guest');
-        //$channel = $connection->channel();
+        $connection = new AMQPStreamConnection('localhost', 5672, 'guest', 'guest');
+        $channel = $connection->channel();
 
-        //$channel->queue_declare('contact', false, false, false, false);
+        $channel->queue_declare('contact', false, false, false, false);
 
         foreach($this->ContactList as $contacts) {
-            //$msg = new AMQPMessage($this->userId.','.$contacts['UserName'].','.$contacts['NickName'].','.$contacts['RemarkName'].','.$contacts['Sex'].','.$contacts['Sex'].','.$contacts['Sex'].','.$contacts['Sex']);
-            echo $this->userId.','.$contacts['UserName'].','.$contacts['NickName'].','.$contacts['RemarkName'].','.$contacts['Sex'].','.$contacts['Sex'].','.$contacts['Sex'].','.$contacts['Sex'];
-            //$channel->basic_publish($msg, '', 'contact');
+            //逗号分割可能有误，使用$％分割
+            $msg = new AMQPMessage($this->userId.'$％'.$contacts['UserName'].'$％'.$contacts['NickName'].'$％'.$contacts['RemarkName'].'$％'.$contacts['Sex'].'$％'.$contacts['Sex'].'$％'.$contacts['Sex'].'$％'.$contacts['Sex']);
+            $channel->basic_publish($msg, '', 'contact');
         }
-        //$channel->close();
-        //$connection->close();
+        $channel->close();
+        $connection->close();
         //结束队列
 
 
