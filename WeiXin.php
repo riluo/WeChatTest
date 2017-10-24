@@ -1,5 +1,10 @@
 #!/usr/bin/env php
 <?php
+require_once __DIR__ . '/vendor/autoload.php';
+use PhpAmqpLib\Connection\AMQPStreamConnection;
+use PhpAmqpLib\Message\AMQPMessage;
+
+
 function raw_input($str){
    fwrite(STDOUT,$str);
    return trim(fgets(STDIN));
@@ -195,6 +200,10 @@ class WeiXin{
                     unset($ContactList[$key]);
                     //$this->GroupList[] = $Contact;
                 }elseif ($Contact['UserName'] == $this->User['UserName']){  # 自己
+
+                    var_dump($Contact);
+
+
                     unset($ContactList[$key]);
                 }
             }
@@ -478,8 +487,8 @@ class WeiXin{
                     $name, $appMsgType[$msg['AppMsgType']], self::json_encode($card))];
                 $this->_showMsg($raw_msg);
             }elseif ($msgType == 51){
-                $raw_msg = ['raw_msg'=> $msg, 'message'=> '[*] 成功获取联系人信息'];
-                $this->_showMsg($raw_msg);
+                //$raw_msg = ['raw_msg'=> $msg, 'message'=> '[*] 成功获取联系人信息'];
+                //$this->_showMsg($raw_msg);
             }elseif ($msgType == 10002){//撤销消息
                 $raw_msg = ['raw_msg'=> $msg, 'message'=> sprintf('%s 撤回了一条消息' , $name)];
                 $this->_showMsg($raw_msg);
@@ -576,6 +585,23 @@ class WeiXin{
         $this->_echo(sprintf('[*] 应有 %s 个联系人，读取到联系人 %d 个' ,
             $this->MemberCount, count($this->MemberList)));
         $this->_echo(sprintf('[*] %d 个直接联系人 ', count($this->ContactList)));
+
+        //开始队列
+        //$connection = new AMQPStreamConnection('localhost', 5672, 'guest', 'guest');
+        //$channel = $connection->channel();
+
+        //$channel->queue_declare('contact', false, false, false, false);
+
+        foreach($this->ContactList as $contacts) {
+            //$msg = new AMQPMessage($this->userId.','.$contacts['UserName'].','.$contacts['NickName'].','.$contacts['RemarkName'].','.$contacts['Sex'].','.$contacts['Sex'].','.$contacts['Sex'].','.$contacts['Sex']);
+            echo $this->userId.','.$contacts['UserName'].','.$contacts['NickName'].','.$contacts['RemarkName'].','.$contacts['Sex'].','.$contacts['Sex'].','.$contacts['Sex'].','.$contacts['Sex'];
+            //$channel->basic_publish($msg, '', 'contact');
+        }
+        //$channel->close();
+        //$connection->close();
+        //结束队列
+
+
         $this->_echo('[*] 微信网页版 ... 开动');
 
         list($t3, $t4) = explode(' ', microtime());
