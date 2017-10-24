@@ -588,8 +588,7 @@ class WeiXin{
             if ($this->DEBUG){
                 $this->_echo(sprintf('retcode: %s, selector: %s',$retcode, $selector));
             }
-            //TODO:debug
-            $this->_echo(sprintf('retcode: %s, selector: %s',$retcode, $selector));
+            //$this->_echo(sprintf('retcode: %s, selector: %s',$retcode, $selector));
 
             if ($retcode == '1100'){
                 $this->_echo('[*] 你在手机上登出了微信，债见');
