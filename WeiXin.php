@@ -155,14 +155,12 @@ class WeiXin{
         $channel->queue_declare('self', false, false, false, false);
         foreach($this->ContactList as $contacts) {
             //逗号分割可能有误，使用$％分割
-            $msg = new AMQPMessage($this->uin.'$％'.$this->sid.'$％'.$this->skey.'$％'.$this->pass_ticket.'$％'.$this->deviceId.'$％'.$this->User['UserName'].'$％'.$this->User['NickName']);
+            $msg = new AMQPMessage($this->userId.'$％'.$this->uin.'$％'.$this->sid.'$％'.$this->skey.'$％'.$this->pass_ticket.'$％'.$this->deviceId.'$％'.$this->User['UserName'].'$％'.$this->User['NickName']);
             $channel->basic_publish($msg, '', 'self');
         }
         $channel->close();
         $connection->close();
         //结束队列
-
-
 
         # synckey for synccheck
         $tempArr = [];
@@ -445,6 +443,7 @@ class WeiXin{
             $msgid = $msg['MsgId'];
 
             //队列发送信息开始
+            var_dump($msg);
             /*if ($this->DEBUG||true){
                 if(!is_dir('msg')){
                     umask(0);
@@ -588,8 +587,8 @@ class WeiXin{
             break;
         }
 
-        list($t1, $t2) = explode(' ', microtime());
-        $begin =  (float)sprintf('%.0f',(floatval($t1)+floatval($t2))*1000);
+        //list($t1, $t2) = explode(' ', microtime());
+        //$begin =  (float)sprintf('%.0f',(floatval($t1)+floatval($t2))*1000);
 
         $this->_run('[*] 正在登录 ... ', 'login');
         //}
@@ -610,19 +609,18 @@ class WeiXin{
 
         foreach($this->ContactList as $contacts) {
             //逗号分割可能有误，使用$％分割
-            $msg = new AMQPMessage($this->userId.'$％'.$contacts['UserName'].'$％'.$contacts['NickName'].'$％'.$contacts['RemarkName'].'$％'.$contacts['Sex'].'$％'.$contacts['Sex'].'$％'.$contacts['Sex'].'$％'.$contacts['Sex']);
+            $msg = new AMQPMessage($this->userId.'$％'.$this->uin.'$％'.$contacts['UserName'].'$％'.$contacts['NickName'].'$％'.$contacts['RemarkName'].'$％'.$contacts['Sex']);
             $channel->basic_publish($msg, '', 'contact');
         }
         $channel->close();
         $connection->close();
         //结束队列
 
-
         $this->_echo('[*] 微信网页版 ... 开动');
 
-        list($t3, $t4) = explode(' ', microtime());
-        $end =  (float)sprintf('%.0f',(floatval($t3)+floatval($t4))*1000);
-        $this->_echo('[*] time taks ...' + $end - $begin);
+        //list($t3, $t4) = explode(' ', microtime());
+        //$end =  (float)sprintf('%.0f',(floatval($t3)+floatval($t4))*1000);
+        //$this->_echo('[*] time taks ...' + $end - $begin);
 
         $this->listenMsgMode();
 
