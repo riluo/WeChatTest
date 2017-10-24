@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bd4c0a60-8267-44ea-be14-fc82d1fe586f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WeiXin.php" afterPath="$PROJECT_DIR$/WeiXin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/receive_chat.php" afterPath="$PROJECT_DIR$/receive_chat.php" />
-    </list>
+    <list default="true" id="bd4c0a60-8267-44ea-be14-fc82d1fe586f" name="Default" comment="" />
     <ignored path="WeChatTest.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -28,86 +25,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="send.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/send.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.375" vertical-offset="0" max-vertical-offset="435">
-              <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
-              <folding>
-                <element signature="e#140#187#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="receive.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/receive.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.25" vertical-offset="0" max-vertical-offset="480">
-              <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MsgServer.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MsgServer.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.416667" vertical-offset="359" max-vertical-offset="975">
-              <caret line="39" column="14" selection-start-line="39" selection-start-column="14" selection-end-line="39" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="receive_contact.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/receive_contact.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="495">
-              <caret line="16" column="30" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="composer.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vendor/aferrandini/phpqrcode/composer.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.625" vertical-offset="0" max-vertical-offset="405">
-              <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WeiXin.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="WeiXin.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/WeiXin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.1764705" vertical-offset="7134" max-vertical-offset="13815">
+            <state vertical-scroll-proportion="13.22898" vertical-offset="0" max-vertical-offset="13815">
               <caret line="483" column="53" selection-start-line="483" selection-start-column="53" selection-end-line="483" selection-end-column="53" />
               <folding>
                 <element signature="e#72#119#0#PHP" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="receive_chat.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/receive_chat.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.35836178" vertical-offset="0" max-vertical-offset="586">
-              <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="receive_self.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/receive_self.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.375" vertical-offset="0" max-vertical-offset="495">
-              <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -599,19 +524,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/WeiXin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.1764705" vertical-offset="7134" max-vertical-offset="13815">
+        <state vertical-scroll-proportion="13.22898" vertical-offset="0" max-vertical-offset="13815">
           <caret line="483" column="53" selection-start-line="483" selection-start-column="53" selection-end-line="483" selection-end-column="53" />
           <folding>
             <element signature="e#72#119#0#PHP" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/receive_chat.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35836178" vertical-offset="0" max-vertical-offset="586">
-          <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
