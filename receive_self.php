@@ -14,11 +14,11 @@ $channel = $connection->channel();
 
 $channel->queue_declare('self', false, false, false, false);
 
-echo ' [*] Waiting for contact. To exit press CTRL+C', "\n";
+echo ' [*] Waiting for self. To exit press CTRL+C', "\n";
 
 
 $callback = function($msg) {
-    echo " [x] Received contact", $msg->body, "\n";
+    echo " [x] Received self", $msg->body, "\n";
 };
 
 $channel->basic_consume('self', '', false, true, false, false, $callback);

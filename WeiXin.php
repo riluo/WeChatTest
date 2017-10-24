@@ -149,22 +149,6 @@ class WeiXin{
         $this->SyncKey = $dic['SyncKey'];
         $this->User = $dic['User'];
 
-        //开始队列
-        $connection = new AMQPStreamConnection('localhost', 5672, 'guest', 'guest');
-        $channel = $connection->channel();
-        $channel->queue_declare('self', false, false, false, false);
-        foreach($this->ContactList as $contacts) {
-            //头像开始 如果已有联系人图片，则跳过，否则保存
-            $avatar = $this->webwxgeticon($this->User['UserName'],$this->User['NickName'],$this->uin);
-            //头像结束
-            //逗号分割可能有误，使用$％分割
-            $msg = new AMQPMessage($this->userId.'$％'.$this->uin.'$％'.$this->sid.'$％'.$this->skey.'$％'.$this->pass_ticket.'$％'.$this->deviceId.'$％'.$this->User['UserName'].'$％'.$this->User['NickName'].'$％'.$avatar);
-            $channel->basic_publish($msg, '', 'self');
-        }
-        $channel->close();
-        $connection->close();
-        //结束队列
-
         # synckey for synccheck
         $tempArr = [];
         if(is_array($this->SyncKey['List'])){
@@ -218,6 +202,21 @@ class WeiXin{
                     unset($ContactList[$key]);
                     //$this->GroupList[] = $Contact;
                 }elseif ($Contact['UserName'] == $this->User['UserName']){  # 自己
+                    //开始队列
+                    $connection = new AMQPStreamConnection('localhost', 5672, 'guest', 'guest');
+                    $channel = $connection->channel();
+                    $channel->queue_declare('self', false, false, false, false);
+                    foreach($this->ContactList as $contacts) {
+                        //头像开始 如果已有联系人图片，则跳过，否则保存
+                        $avatar = $this->webwxgeticon($this->User['UserName'],$this->User['NickName'],$this->uin);
+                        //头像结束
+                        //逗号分割可能有误，使用$％分割
+                        $msg = new AMQPMessage($this->userId.'$％'.$this->uin.'$％'.$this->sid.'$％'.$this->skey.'$％'.$this->pass_ticket.'$％'.$this->deviceId.'$％'.$this->User['UserName'].'$％'.$this->User['NickName'].'$％'.$avatar);
+                        $channel->basic_publish($msg, '', 'self');
+                    }
+                    $channel->close();
+                    $connection->close();
+                    //结束队列
                     unset($ContactList[$key]);
                 }
             }
