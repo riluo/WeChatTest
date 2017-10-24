@@ -37,7 +37,7 @@ class MsgServer
         $weixin->loadConfig([
             'interactive'=>true,
             //'autoReplyMode'=>true,
-            'DEBUG'=>true
+            //'DEBUG'=>true
         ]);
         $weixin->start();
 
