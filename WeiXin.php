@@ -202,21 +202,6 @@ class WeiXin{
                     unset($ContactList[$key]);
                     //$this->GroupList[] = $Contact;
                 }elseif ($Contact['UserName'] == $this->User['UserName']){  # 自己
-                    //开始队列
-                    $connection = new AMQPStreamConnection('localhost', 5672, 'guest', 'guest');
-                    $channel = $connection->channel();
-                    $channel->queue_declare('self', false, false, false, false);
-                    foreach($this->ContactList as $contacts) {
-                        //头像开始 如果已有联系人图片，则跳过，否则保存
-                        $avatar = $this->webwxgeticon($this->User['UserName'],$this->User['NickName'],$this->uin);
-                        //头像结束
-                        //逗号分割可能有误，使用$％分割
-                        $msg = new AMQPMessage($this->userId.'$％'.$this->uin.'$％'.$this->sid.'$％'.$this->skey.'$％'.$this->pass_ticket.'$％'.$this->deviceId.'$％'.$this->User['UserName'].'$％'.$this->User['NickName'].'$％'.$avatar);
-                        $channel->basic_publish($msg, '', 'self');
-                    }
-                    $channel->close();
-                    $connection->close();
-                    //结束队列
                     unset($ContactList[$key]);
                 }
             }
@@ -677,7 +662,6 @@ class WeiXin{
 
         $this->_run('[*] 正在登录 ... ', 'login');
         //}
-
         $this->_run('[*] 微信初始化 ... ', 'webwxinit');
 
         $this->_run('[*] 开启状态通知 ... ', 'webwxstatusnotify');
@@ -686,8 +670,21 @@ class WeiXin{
             $this->MemberCount, count($this->MemberList)));
         $this->_echo(sprintf('[*] %d 个直接联系人 ', count($this->ContactList)));
 
-        //开始队列
+
+
+        //开始队列 当前操作人
         $connection = new AMQPStreamConnection('localhost', 5672, 'guest', 'guest');
+        $channel = $connection->channel();
+        $channel->queue_declare('self', false, false, false, false);
+        $avatar = $this->webwxgeticon($this->User['UserName'],$this->User['NickName'],$this->uin);
+        $selfMsg = new AMQPMessage($this->userId.'$％'.$this->uin.'$％'.$this->sid.'$％'.$this->skey.'$％'.$this->pass_ticket.'$％'.$this->deviceId.'$％'.$this->User['UserName'].'$％'.$this->User['NickName'].'$％'.$avatar);
+        $channel->basic_publish($selfMsg, '', 'self');
+        $channel->close();
+        //$connection->close();
+        //结束队列 当前操作人
+
+        //开始队列 朋友
+        //$connection = new AMQPStreamConnection('localhost', 5672, 'guest', 'guest');
         $channel = $connection->channel();
 
         $channel->queue_declare('contact', false, false, false, false);
@@ -704,7 +701,7 @@ class WeiXin{
         }
         $channel->close();
         $connection->close();
-        //结束队列
+        //结束队列 朋友
 
         $this->_echo('[*] 微信网页版 ... 开动');
 
