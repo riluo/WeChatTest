@@ -356,7 +356,7 @@ class WeiXin{
         $url = sprintf($this->base_uri .
             '/webwxgeticon?username=%s&skey=%s' , $id, $this->skey);
         $data = $this->_get($url);
-        $fn = mdf($nickname.'$%'.$remarkname) . '.jpg';
+        $fn = md5($nickname.'$%'.$remarkname) . '.jpg';
 
         if (isset($this->saveSubFolders['webwxgeticon'])){
             $dirName = $this->saveFolder.$this->saveSubFolders['webwxgeticon'].'/'.$this->uin;
