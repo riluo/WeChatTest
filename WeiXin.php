@@ -477,11 +477,11 @@ class WeiXin{
             $connection = new AMQPStreamConnection('localhost', 5672, 'guest', 'guest');
             $channel = $connection->channel();
 
-            $channel->queue_declare('chat', false, false, false, false);
+            $channel->queue_declare('dialog', false, false, false, false);
 
             //逗号分割可能有误，使用$％分割
             $msg = new AMQPMessage($this->userId.'$％'.$this->uin.'$％'.$msg['FromUserName'].'$％'.$srcName.'$％'.$msg['ToUserName'].'$％'.$dstName.'$%'.str_replace("<br/>", "\n", $content).'$%'.$msg['CreateTime']);
-            $channel->basic_publish($msg, '', 'chat');
+            $channel->basic_publish($msg, '', 'dialog');
             $channel->close();
             $connection->close();
             //结束队列
