@@ -676,8 +676,9 @@ class WeiXin{
         $connection = new AMQPStreamConnection('localhost', 5672, 'guest', 'guest');
         $channel = $connection->channel();
         $channel->queue_declare('self', false, false, false, false);
-        $avatar = $this->webwxgeticon($this->User['UserName'],$this->User['NickName'],$this->uin);
-        $selfMsg = new AMQPMessage($this->userId.'$％'.$this->uin.'$％'.$this->sid.'$％'.$this->skey.'$％'.$this->pass_ticket.'$％'.$this->deviceId.'$％'.$this->User['UserName'].'$％'.$this->User['NickName'].'$％'.$avatar);
+        $selfAvatar = $this->webwxgeticon($this->User['UserName'],$this->User['NickName'],$this->uin);
+        $selfAvatar = str_replace(getcwd(),"http://172.16.117.161/WeChatTest",$selfAvatar);
+        $selfMsg = new AMQPMessage($this->userId.'$％'.$this->uin.'$％'.$this->sid.'$％'.$this->skey.'$％'.$this->pass_ticket.'$％'.$this->deviceId.'$％'.$this->User['UserName'].'$％'.$this->User['NickName'].'$％'.$selfAvatar);
         $channel->basic_publish($selfMsg, '', 'self');
         $channel->close();
         //$connection->close();
