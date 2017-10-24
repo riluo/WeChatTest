@@ -321,8 +321,8 @@ class WeiXin{
             "skey"=>$this->skey
         ];
         $dic = $this->_post($url, $data);
-        if ($this->DEBUG)
-            var_dump($dic);
+        //if ($this->DEBUG)
+        //    var_dump($dic);
         return $dic['BaseResponse']['Ret'] == 0;
     }
 
@@ -379,10 +379,26 @@ class WeiXin{
         }
 
         if ($name == '未知群' || $name == '陌生人'){
-            var_dump($id);
+            //var_dump($id);
         }
         return $name;
     }
+
+    public function getUserNickName($id){
+        $name = substr($id, 0,2) == '@@'?'未知群':'陌生人';
+        if ($id == $this->User['UserName']){
+            return $this->User['NickName'];  # 自己
+        }
+
+        # 直接联系人
+        foreach($this->ContactList as $member){
+            if ($member['UserName'] == $id){
+                $name =  $member['NickName'];
+            }
+        }
+        return $name;
+    }
+
     public function getUSerID($name){
         foreach($this->MemberList as $member){
             if ($name == $member['RemarkName'] || $name == $member['NickName']){
@@ -427,6 +443,53 @@ class WeiXin{
             return true;
         }
     }
+
+    private function handleMsgMQ($message) {
+        $srcName = null;
+        $dstName = null;
+        $groupName = null;
+        $content = null;
+
+        $msg = $message;
+        //$this->_echo($msg);
+
+        if ($msg){
+            $srcName = $this->getUserNickName($msg['FromUserName']);
+            if($srcName == $this->User['NickName']){
+                return false;
+            }
+            if($srcName == '未知群'){
+                return false;
+            }
+            $dstName = $this->getUserNickName($msg['ToUserName']);
+            if($dstName == '未知群'){
+                return false;
+            }
+            $content = $msg['Content'];//str_replace(['&lt;','&gt;'], ['<','>'], $msg['raw_msg']['Content']);
+            $message_id = $msg['MsgId'];
+
+            if ($msg['ToUserName'] == 'filehelper'){
+                # 文件传输助手
+                $dstName = '文件传输助手';
+                return false;
+            }
+            //开始队列
+            $connection = new AMQPStreamConnection('localhost', 5672, 'guest', 'guest');
+            $channel = $connection->channel();
+
+            $channel->queue_declare('chat', false, false, false, false);
+
+            //逗号分割可能有误，使用$％分割
+            $msg = new AMQPMessage($this->userId.'$％'.$this->uin.'$％'.$msg['FromUserName'].'$％'.$srcName.'$％'.$msg['ToUserName'].'$％'.$dstName.'$%'.str_replace("<br/>", "\n", $content).'$%'.$msg['CreateTime']);
+            $channel->basic_publish($msg, '', 'chat');
+            $channel->close();
+            $connection->close();
+            //结束队列
+            return true;
+        }
+    }
+
+
     public static function br2nl ( $string ){
         return preg_replace('/\<br(\s*)?\/?\>/i', PHP_EOL, $string);
     }
@@ -443,7 +506,6 @@ class WeiXin{
             $msgid = $msg['MsgId'];
 
             //队列发送信息开始
-            var_dump($msg);
             /*if ($this->DEBUG||true){
                 if(!is_dir('msg')){
                     umask(0);
@@ -458,8 +520,9 @@ class WeiXin{
             //队列发送信息结束
 
             if ($msgType == 1){
-                $raw_msg = ['raw_msg'=> $msg];
-                $isReply = $this->_showMsg($raw_msg);
+                //$raw_msg = ['raw_msg'=> $msg];
+                //$isReply = $this->_showMsg($raw_msg);
+                $this->handleMsgMQ($msg);
             }elseif($msgType == 37){
                 //是否自动通过加好友验证
                 if(true){
