@@ -378,7 +378,7 @@ class WeiXin{
             }
         }
 
-        return $fn;
+        return str_replace(getcwd(),'http://172.16.117.161/WeChatTest/',$fn);
     }
 
     public function webwxgetheadimg(){
