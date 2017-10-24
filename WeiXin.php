@@ -114,6 +114,7 @@ class WeiXin{
             $this->_echo("[登陆超时]");
         } else {
             $this->_echo("[登陆异常]");
+            return "logout";
         }
         return false;
     }
