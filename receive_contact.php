@@ -19,7 +19,7 @@ echo ' [*] Waiting for contact. To exit press CTRL+C', "\n";
 $pdo = new PDO("mysql:host=localhost;dbname=sd_chat","root","Sunland16");
 $callback = function($msg) use($pdo) {
     echo " [x] Received contact", $msg->body, "\n";
-
+    
     $arr = explode("$%",$msg->body);
     $userId = $arr[0];
     $uin = $arr[1];

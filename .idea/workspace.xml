@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bd4c0a60-8267-44ea-be14-fc82d1fe586f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/WeChatTest.iml" afterPath="$PROJECT_DIR$/.idea/WeChatTest.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WeiXin.php" afterPath="$PROJECT_DIR$/WeiXin.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/receive_contact.php" afterPath="$PROJECT_DIR$/receive_contact.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/receive_self.php" afterPath="$PROJECT_DIR$/receive_self.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="WeChatTest.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,8 +31,8 @@
       <file leaf-file-name="WeiXin.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WeiXin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.5882353" vertical-offset="10119" max-vertical-offset="14220">
-              <caret line="680" column="217" selection-start-line="680" selection-start-column="35" selection-end-line="680" selection-end-column="217" />
+            <state vertical-scroll-proportion="-1.5882353" vertical-offset="7269" max-vertical-offset="14220">
+              <caret line="490" column="108" selection-start-line="490" selection-start-column="108" selection-end-line="490" selection-end-column="108" />
               <folding>
                 <element signature="e#72#119#0#PHP" expanded="true" />
               </folding>
@@ -42,27 +40,27 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="receive_contact.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="receive_contact.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/receive_contact.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.666667" vertical-offset="239" max-vertical-offset="825">
-              <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.28327644" vertical-offset="149" max-vertical-offset="825">
+              <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
               <folding>
-                <marker date="1508899128000" expanded="true" signature="820:860" placeholder="SELECT * fro..friends..." />
-                <marker date="1508899128000" expanded="true" signature="820:930" placeholder="SELECT * fro..friends..." />
-                <marker date="1508899128000" expanded="true" signature="1007:1183" placeholder="UPDATE frien..." />
-                <marker date="1508899128000" expanded="true" signature="1220:1376" placeholder="insert into ..." />
-                <marker date="1508899128000" expanded="true" signature="1220:1387" placeholder="insert into ..." />
-                <marker date="1508899128000" expanded="true" signature="1220:1491" placeholder="insert into ..." />
+                <marker date="1508899966000" expanded="true" signature="824:864" placeholder="SELECT * fro..friends..." />
+                <marker date="1508899966000" expanded="true" signature="824:934" placeholder="SELECT * fro..friends..." />
+                <marker date="1508899966000" expanded="true" signature="1011:1187" placeholder="UPDATE frien..." />
+                <marker date="1508899966000" expanded="true" signature="1224:1380" placeholder="insert into ..." />
+                <marker date="1508899966000" expanded="true" signature="1224:1391" placeholder="insert into ..." />
+                <marker date="1508899966000" expanded="true" signature="1224:1495" placeholder="insert into ..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="receive_self.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="receive_self.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/receive_self.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8720136" vertical-offset="149" max-vertical-offset="870">
+            <state vertical-scroll-proportion="-18.791666" vertical-offset="149" max-vertical-offset="870">
               <caret line="40" column="261" selection-start-line="40" selection-start-column="261" selection-end-line="40" selection-end-column="261" />
               <folding>
                 <marker date="1508899259000" expanded="true" signature="858:899" placeholder="SELECT * fro..self..." />
@@ -115,9 +113,9 @@
         <option value="$PROJECT_DIR$/MsgServer.php" />
         <option value="$PROJECT_DIR$/receive_chat.php" />
         <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/receive_self.php" />
         <option value="$PROJECT_DIR$/WeiXin.php" />
         <option value="$PROJECT_DIR$/receive_contact.php" />
-        <option value="$PROJECT_DIR$/receive_self.php" />
       </list>
     </option>
   </component>
@@ -597,31 +595,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WeiXin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.5882353" vertical-offset="10119" max-vertical-offset="14220">
-          <caret line="680" column="217" selection-start-line="680" selection-start-column="35" selection-end-line="680" selection-end-column="217" />
-          <folding>
-            <element signature="e#72#119#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/receive_contact.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.666667" vertical-offset="239" max-vertical-offset="825">
-          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding>
-            <marker date="1508899128000" expanded="true" signature="820:860" placeholder="SELECT * fro..friends..." />
-            <marker date="1508899128000" expanded="true" signature="820:930" placeholder="SELECT * fro..friends..." />
-            <marker date="1508899128000" expanded="true" signature="1007:1183" placeholder="UPDATE frien..." />
-            <marker date="1508899128000" expanded="true" signature="1220:1376" placeholder="insert into ..." />
-            <marker date="1508899128000" expanded="true" signature="1220:1387" placeholder="insert into ..." />
-            <marker date="1508899128000" expanded="true" signature="1220:1491" placeholder="insert into ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/receive_dialog.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="610">
@@ -630,15 +603,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/WeiXin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.5882353" vertical-offset="7269" max-vertical-offset="14220">
+          <caret line="490" column="108" selection-start-line="490" selection-start-column="108" selection-end-line="490" selection-end-column="108" />
+          <folding>
+            <element signature="e#72#119#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/receive_self.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8720136" vertical-offset="149" max-vertical-offset="870">
+        <state vertical-scroll-proportion="-18.791666" vertical-offset="149" max-vertical-offset="870">
           <caret line="40" column="261" selection-start-line="40" selection-start-column="261" selection-end-line="40" selection-end-column="261" />
           <folding>
             <marker date="1508899259000" expanded="true" signature="858:899" placeholder="SELECT * fro..self..." />
             <marker date="1508899259000" expanded="true" signature="858:901" placeholder="SELECT * fro..self..." />
             <marker date="1508899259000" expanded="true" signature="976:1194" placeholder="UPDATE frien..." />
             <marker date="1508899259000" expanded="true" signature="1231:1542" placeholder="insert into ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/receive_contact.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.28327644" vertical-offset="149" max-vertical-offset="825">
+          <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
+          <folding>
+            <marker date="1508899966000" expanded="true" signature="824:864" placeholder="SELECT * fro..friends..." />
+            <marker date="1508899966000" expanded="true" signature="824:934" placeholder="SELECT * fro..friends..." />
+            <marker date="1508899966000" expanded="true" signature="1011:1187" placeholder="UPDATE frien..." />
+            <marker date="1508899966000" expanded="true" signature="1224:1380" placeholder="insert into ..." />
+            <marker date="1508899966000" expanded="true" signature="1224:1391" placeholder="insert into ..." />
+            <marker date="1508899966000" expanded="true" signature="1224:1495" placeholder="insert into ..." />
           </folding>
         </state>
       </provider>

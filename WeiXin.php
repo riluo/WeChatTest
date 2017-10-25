@@ -487,8 +487,8 @@ class WeiXin{
 
             $channel->queue_declare('dialog', false, false, false, false);
 
-            //逗号分割可能有误，使用$％分割
-            $msg = new AMQPMessage($this->userId.'$％'.$this->uin.'$％'.$msg['FromUserName'].'$％'.$srcName.'$％'.$msg['ToUserName'].'$％'.$dstName.'$%'.str_replace("<br/>", "\n", $content).'$%'.$msg['CreateTime']);
+            //逗号分割可能有误，使用$%分割
+            $msg = new AMQPMessage($this->userId.'$%'.$this->uin.'$%'.$msg['FromUserName'].'$%'.$srcName.'$%'.$msg['ToUserName'].'$%'.$dstName.'$%'.str_replace("<br/>", "\n", $content).'$%'.$msg['CreateTime']);
             $channel->basic_publish($msg, '', 'dialog');
             $channel->close();
             $connection->close();
@@ -678,7 +678,7 @@ class WeiXin{
         $channel->queue_declare('self', false, false, false, false);
         $selfAvatar = $this->webwxgeticon($this->User['UserName'],$this->User['NickName'],$this->uin);
         $selfAvatar = str_replace(getcwd(),"http://172.16.117.161/WeChatTest",$selfAvatar);
-        $selfMsg = new AMQPMessage($this->userId.'$％'.$this->uin.'$％'.$this->sid.'$％'.$this->skey.'$％'.$this->pass_ticket.'$％'.$this->deviceId.'$％'.$this->User['UserName'].'$％'.$this->User['NickName'].'$％'.$selfAvatar);
+        $selfMsg = new AMQPMessage($this->userId.'$%'.$this->uin.'$%'.$this->sid.'$%'.$this->skey.'$%'.$this->pass_ticket.'$%'.$this->deviceId.'$%'.$this->User['UserName'].'$%'.$this->User['NickName'].'$%'.$selfAvatar);
         $channel->basic_publish($selfMsg, '', 'self');
         $channel->close();
         //$connection->close();
@@ -696,8 +696,8 @@ class WeiXin{
             $avatar = str_replace(getcwd(),"http://172.16.117.161/WeChatTest",$avatar);
 
             //头像结束
-            //逗号分割可能有误，使用$％分割
-            $msg = new AMQPMessage($this->userId.'$％'.$this->uin.'$％'.$contacts['UserName'].'$％'.$contacts['NickName'].'$％'.$contacts['RemarkName'].'$％'.$contacts['Sex'].'$％'.$avatar);
+            //逗号分割可能有误，使用$%分割
+            $msg = new AMQPMessage($this->userId.'$%'.$this->uin.'$%'.$contacts['UserName'].'$%'.$contacts['NickName'].'$%'.$contacts['RemarkName'].'$%'.$contacts['Sex'].'$%'.$avatar);
             $channel->basic_publish($msg, '', 'contact');
         }
         $channel->close();
