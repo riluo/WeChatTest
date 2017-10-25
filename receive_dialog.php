@@ -19,7 +19,7 @@ echo ' [*] Waiting for dialog. To exit press CTRL+C', "\n";
 $pdo = new PDO("mysql:host=localhost;dbname=sd_chat","root","Sunland16");
 $callback = function($msg) use($pdo) {
     echo " [x] Received dialog", $msg->body, "\n";
-    
+
     $arr = explode("$%",$msg->body);
     $userId = $arr[0];
     $uin = $arr[1];
@@ -29,6 +29,8 @@ $callback = function($msg) use($pdo) {
     $toNickName = $arr[5];
     $content = htmlentities($arr[6]);
     $createTime = date('Y-m-d H:i:s',$arr[7]);
+
+    echo "insert into dialog(msgType,fromUserName,fromNickName,toUsername,,toNickName,content, createTime) values('1','".$fromUserName."','".$fromNickName."','".$toUserName."','".$toNickName."','".$content."','".$createTime."')";
 
     $pdo->exec("insert into dialog(msgType,fromUserName,fromNickName,toUsername,,toNickName,content, createTime) values('1','".$fromUserName."','".$fromNickName."','".$toUserName."','".$toNickName."','".$content."','".$createTime."')");
 
