@@ -14,11 +14,24 @@ $channel = $connection->channel();
 
 $channel->queue_declare('dialog', false, false, false, false);
 
-echo ' [*] Waiting for contact. To exit press CTRL+C', "\n";
+echo ' [*] Waiting for dialog. To exit press CTRL+C', "\n";
 
+$pdo = new PDO("mysql:host=localhost;dbname=sd_chat","root","Sunland16");
+$callback = function($msg) use($pdo) {
+    echo " [x] Received dialog", $msg->body, "\n";
+    
+    $arr = explode("$%",$msg->body);
+    $userId = $arr[0];
+    $uin = $arr[1];
+    $fromUserName = $arr[2];
+    $fromNickName = $arr[3];
+    $toUserName = $arr[4];
+    $toNickName = $arr[5];
+    $content = htmlentities($arr[6]);
+    $createTime = date('Y-m-d H:i:s',$arr[7]);
 
-$callback = function($msg) {
-    echo " [x] Received contact", $msg->body, "\n";
+    $pdo->exec("insert into dialog(msgType,fromUserName,fromNickName,toUsername,,toNickName,content, createTime) values('1','".$fromUserName."','".$fromNickName."','".$toUserName."','".$toNickName."','".$content."','".$createTime."')");
+
 };
 
 $channel->basic_consume('dialog', '', false, true, false, false, $callback);
@@ -26,3 +39,4 @@ $channel->basic_consume('dialog', '', false, true, false, false, $callback);
 while(count($channel->callbacks)) {
     $channel->wait();
 }
+$pdo = null;

@@ -47,3 +47,4 @@ $channel->basic_consume('self', '', false, true, false, false, $callback);
 while(count($channel->callbacks)) {
     $channel->wait();
 }
+$pdo = null;
