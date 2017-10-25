@@ -74,12 +74,11 @@
       <file leaf-file-name="receive_dialog.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/receive_dialog.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.69283277" vertical-offset="89" max-vertical-offset="780">
-              <caret line="32" column="229" selection-start-line="32" selection-start-column="229" selection-end-line="32" selection-end-column="229" />
+            <state vertical-scroll-proportion="0.69283277" vertical-offset="74" max-vertical-offset="735">
+              <caret line="32" column="80" selection-start-line="32" selection-start-column="80" selection-end-line="32" selection-end-column="80" />
               <folding>
-                <marker date="1508902120000" expanded="true" signature="879:1096" placeholder="insert into ..." />
-                <marker date="1508902120000" expanded="true" signature="1116:1225" placeholder="insert into ..." />
-                <marker date="1508902120000" expanded="true" signature="1116:1333" placeholder="insert into ..." />
+                <marker date="1508902451000" expanded="true" signature="885:993" placeholder="insert into ..." />
+                <marker date="1508902451000" expanded="true" signature="885:1101" placeholder="insert into ..." />
               </folding>
             </state>
           </provider>
@@ -639,12 +638,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/receive_dialog.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.69283277" vertical-offset="89" max-vertical-offset="780">
-          <caret line="32" column="229" selection-start-line="32" selection-start-column="229" selection-end-line="32" selection-end-column="229" />
+        <state vertical-scroll-proportion="0.69283277" vertical-offset="74" max-vertical-offset="735">
+          <caret line="32" column="80" selection-start-line="32" selection-start-column="80" selection-end-line="32" selection-end-column="80" />
           <folding>
-            <marker date="1508902120000" expanded="true" signature="879:1096" placeholder="insert into ..." />
-            <marker date="1508902120000" expanded="true" signature="1116:1225" placeholder="insert into ..." />
-            <marker date="1508902120000" expanded="true" signature="1116:1333" placeholder="insert into ..." />
+            <marker date="1508902451000" expanded="true" signature="885:993" placeholder="insert into ..." />
+            <marker date="1508902451000" expanded="true" signature="885:1101" placeholder="insert into ..." />
           </folding>
         </state>
       </provider>

@@ -30,9 +30,7 @@ $callback = function($msg) use($pdo) {
     $content = htmlentities($arr[6]);
     $createTime = date('Y-m-d H:i:s',$arr[7]);
 
-    echo "insert into dialog(msgType,fromUserName,fromNickName,toUsername,,toNickName,content, createTime) values('1','".$fromUserName."','".$fromNickName."','".$toUserName."','".$toNickName."','".$content."','".$createTime."')";
-
-    $pdo->exec("insert into dialog(msgType,fromUserName,fromNickName,toUsername,,toNickName,content, createTime) values('1','".$fromUserName."','".$fromNickName."','".$toUserName."','".$toNickName."','".$content."','".$createTime."')");
+    $pdo->exec("insert into dialog(msgType,fromUserName,fromNickName,toUsername,toNickName,content, createTime) values('1','".$fromUserName."','".$fromNickName."','".$toUserName."','".$toNickName."','".$content."','".$createTime."')");
 
 };
 
